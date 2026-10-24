@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0b0d0c" />
+    <meta name="description" content="A calm, clear view of your money." />
+    <title>Northstar — Personal Finance</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css?v=2" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Main navigation">
+        <a class="brand" href="#dashboard" aria-label="Northstar home">
+          <span class="brand-mark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5 14.4 9.6 21.5 12l-7.1 2.4L12 21.5l-2.4-7.1L2.5 12l7.1-2.4L12 2.5Z"/><circle cx="12" cy="12" r="2"/></svg></span>
+          <span class="brand-name">northstar<span class="brand-dot">.</span><small>PERSONAL FINANCE</small></span>
+        </a>
+        <div class="nav-caption">WORKSPACE</div>
+        <nav class="side-nav" id="sideNav"></nav>
+        <div class="sidebar-bottom">
+          <div class="side-note"><span class="note-glow"></span><div><strong>Your money, in focus.</strong><span>A little clarity goes a long way.</span></div></div>
+          <button class="profile-button" type="button" data-nav="settings"><span class="avatar">N</span><span class="profile-copy"><strong>My finances</strong><small>Personal account</small></span><span class="profile-more">···</span></button>
+        </div>
+      </aside>
+
+      <main class="main-area">
+        <header class="topbar">
+          <div class="mobile-brand"><span class="brand-mark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5 14.4 9.6 21.5 12l-7.1 2.4L12 21.5l-2.4-7.1L2.5 12l7.1-2.4L12 2.5Z"/><circle cx="12" cy="12" r="2"/></svg></span><span>northstar<span class="brand-dot">.</span></span></div>
+          <div class="breadcrumb"><span>Workspace</span><span class="crumb-slash">/</span><strong id="pageCrumb">Dashboard</strong></div>
+          <div class="top-actions">
+            <label class="month-picker top-month"><span class="sr-only">Select month</span><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="16" rx="2.5"/><path d="M7.5 3v4M16.5 3v4M4 9.5h16"/></svg><input type="month" id="globalMonth" /></label>
+            <button class="icon-button top-settings" type="button" data-nav="settings" aria-label="Settings"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="m19.4 15 .1.1a1.8 1.8 0 1 1-2.5 2.5l-.1-.1a1.8 1.8 0 0 0-3 .9v.2a1.8 1.8 0 1 1-3.6 0v-.2a1.8 1.8 0 0 0-3-.9l-.1.1a1.8 1.8 0 1 1-2.5-2.5l.1-.1a1.8 1.8 0 0 0-.9-3h-.2a1.8 1.8 0 1 1 0-3.6h.2a1.8 1.8 0 0 0 .9-3l-.1-.1a1.8 1.8 0 1 1 2.5-2.5l.1.1a1.8 1.8 0 0 0 3-.9v-.2a1.8 1.8 0 1 1 3.6 0v.2a1.8 1.8 0 0 0 3 .9l.1-.1a1.8 1.8 0 1 1 2.5 2.5l-.1.1a1.8 1.8 0 0 0 .9 3h.2a1.8 1.8 0 1 1 0 3.6h-.2a1.8 1.8 0 0 0-.9 3Z"/></svg></button>
+            <button class="primary-button add-top" type="button" id="addTop"><span>+</span> Add transaction</button>
+          </div>
+        </header>
+        <section id="view" class="view" tabindex="-1"></section>
+      </main>
+    </div>
+
+    <nav class="bottom-nav" id="bottomNav" aria-label="Mobile navigation"></nav>
+    <button class="mobile-add" id="mobileAdd" type="button" aria-label="Add transaction">+</button>
+    <div id="modalRoot"></div>
+    <div id="toastStack" class="toast-stack" aria-live="polite" aria-atomic="false"></div>
+    <script src="app.js" defer></script>
+  </body>
+</html>
