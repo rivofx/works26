@@ -1,0 +1,33 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "services": {
+    "app": {
+      "root": ".",
+      "framework": "vite"
+    },
+    "dnx": {
+      "root": "project-sources/dnx",
+      "framework": "nextjs"
+    },
+    "gamebox": {
+      "root": "project-sources/gamebox",
+      "framework": "nextjs"
+    },
+    "x3s": {
+      "root": "project-sources/x3s",
+      "framework": "nextjs"
+    },
+    "0-dnx": {
+      "root": "src/projects/00-dnx",
+      "framework": "nextjs"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": {
+        "service": "app"
+      }
+    }
+  ]
+}
