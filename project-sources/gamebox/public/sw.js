@@ -1,0 +1,5 @@
+const CACHE='gamebox-shell-v4';
+const SHELL=['/','/manifest.webmanifest','/icon.svg','/offline','/games/tic-tac-toe','/games/connect-four','/games/uno','/games/trivia','/games/draw-guess','/games/snake'];
+self.addEventListener('install',event=>{event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(SHELL)).then(()=>self.skipWaiting()))});
+self.addEventListener('activate',event=>{event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key!==CACHE).map(key=>caches.delete(key)))).then(()=>self.clients.claim()))});
+self.addEventListener('fetch',event=>{if(event.request.method!=='GET'||new URL(event.request.url).origin!==self.location.origin)return;const req=event.request;event.respondWith(caches.match(req).then(cached=>{if(req.mode==='navigate'){return fetch(req).then(response=>{if(response.ok)caches.open(CACHE).then(cache=>cache.put(req,response.clone()));return response}).catch(()=>cached||caches.match('/offline'))}if(cached)return cached;return fetch(req).then(response=>{if(response.ok)caches.open(CACHE).then(cache=>cache.put(req,response.clone()));return response}).catch(()=>caches.match('/offline'))}))});

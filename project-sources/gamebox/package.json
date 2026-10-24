@@ -1,0 +1,30 @@
+{
+  "name": "gamebox",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "node server.mjs --dev",
+    "build": "next build",
+    "start": "node server.mjs",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "next": "^15.3.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "ws": "^8.21.3"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.3.7",
+    "@tailwindcss/postcss": "^4.0.0",
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/ws": "^8.18.1",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "15.5.26",
+    "tailwindcss": "^4.0.0",
+    "typescript": "^5.8.0"
+  }
+}
